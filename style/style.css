@@ -1,0 +1,13 @@
+* {
+	font-family: 'Lato', 'sans-serif';	
+}
+.jumbotron {
+	margin-top:50px;
+}
+.text-center {
+	text-align:center !important;
+}
+
+.jumbotron > h1 {
+	font-weight:600;
+}
