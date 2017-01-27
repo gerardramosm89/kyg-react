@@ -1,8 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { reduxForm } from 'redux-form';
 import { createPost } from '../actions/index';
+
 class PostsNew extends Component {
+	static contextTypes = {
+		router: PropTypes.object	
+	}
+
+	onSubmit(props) {
+		this.props.createPost(props)
+			.then(() => {
+				this.context.router.push('/');
+			});
+	}
 	render(){
 		const handleSubmit = this.props.handleSubmit;
 		const title = this.props.fields.title;
@@ -21,10 +32,11 @@ class PostsNew extends Component {
 					<div className="jumbotron text-center">
 					<h2>Start here to create a new blog post.</h2>
 					</div>
-					<form onSubmit={handleSubmit(this.props.createPost)}>
+					<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
 						<div className="form-group">
 						<label>Title</label>
 						<input type="text" className="form-control" { ...title } />
+						{title.touched ? title.error : ''}
 						</div>
             <div className="form-group">
             <label>Keywords</label>
@@ -55,7 +67,16 @@ class PostsNew extends Component {
 	}
 }
 
+function validate(values) {
+	const errors = {};
+	if (!values.title){
+		errors.title = 'Enter a title please';
+	}
+	return errors;
+}
+
 export default reduxForm({
 	form: 'PostsNewForm',
-	fields: ['title','keywords','date','title_image','content','author']
+	fields: ['title','keywords','date','title_image','content','author'],
+	validate
 },null, { createPost })(PostsNew);
