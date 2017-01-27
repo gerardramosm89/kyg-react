@@ -8,6 +8,8 @@ class PostsIndex extends Component {
 		console.log("Now would be a good time to call an action creator");	
 		this.props.fetchPosts();
 	}
+
+
 	render() {
 		return (
 			<div>
@@ -23,7 +25,11 @@ class PostsIndex extends Component {
 	)
 	}
 }
+
+function mapStateToProps(state) {
+	return { posts: state.posts.all };
+}
 function mapDispatchToProps(dispatch){
 	return bindActionCreators({ fetchPosts }, dispatch);
 }
-export default connect(null,mapDispatchToProps)(PostsIndex);
+export default connect(mapStateToProps,mapDispatchToProps)(PostsIndex);
