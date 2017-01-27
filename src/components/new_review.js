@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { reduxForm } from 'redux-form';
-import { createPost } from '../actions/index';
-class PostsNew extends Component {
+import { createReviewPost } from '../actions/index';
+class NewReview extends Component {
 	render(){
 		const handleSubmit = this.props.handleSubmit;
 		const title = this.props.fields.title;
@@ -19,9 +19,9 @@ class PostsNew extends Component {
 				</Link>
 				<div className="container">
 					<div className="jumbotron text-center">
-					<h2>Start here to create a new blog post.</h2>
+					<h2>Start here to create a new review post.</h2>
 					</div>
-					<form onSubmit={handleSubmit(this.props.createPost)}>
+					<form onSubmit={handleSubmit(this.props.createReviewPost)}>
 						<div className="form-group">
 						<label>Title</label>
 						<input type="text" className="form-control" { ...title } />
@@ -56,6 +56,6 @@ class PostsNew extends Component {
 }
 
 export default reduxForm({
-	form: 'PostsNewForm',
+	form: 'NewReviewForm',
 	fields: ['title','keywords','date','title_image','content','author']
-},null, { createPost })(PostsNew);
+},null, { createReviewPost })(NewReview);
