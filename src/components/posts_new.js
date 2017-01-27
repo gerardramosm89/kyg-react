@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { reduxForm } from 'redux-form';
+import { createPost } from '../actions/index';
 class PostsNew extends Component {
 	render(){
+		const handleSubmit = this.props.handleSubmit;
+		const title = this.props.fields.title;
+		const keywords = this.props.fields.keywords;
+		const date = this.props.fields.date;
+		const title_image = this.props.fields.title_image;
+		const content = this.props.fields.content;
+		const author = this.props.fields.author;
+		console.log(this.props.fields);
 		return(
 			<div>
 				<Link to="/" className="text-xs-left btn btn-info">
@@ -12,31 +21,33 @@ class PostsNew extends Component {
 					<div className="jumbotron text-center">
 					<h2>Start here to create a post.</h2>
 					</div>
-					<form>
+					<form onSubmit={handleSubmit(this.props.createPost)}>
 						<div className="form-group">
 						<label>Title</label>
-						<input type="text" className="form-control" />
+						<input type="text" className="form-control" { ...title } />
 						</div>
             <div className="form-group">
             <label>Keywords</label>
-            <input type="text" className="form-control" />
+            <input type="text" className="form-control" { ...keywords }/>
             </div>
             <div className="form-group">
             <label>Date</label>
-            <input type="text" className="form-control" />
+            <input type="text" className="form-control" { ...date }/>
             </div>
             <div className="form-group">
             <label>Title Image</label>
-            <input type="text" className="form-control" />
+            <input type="text" className="form-control" { ...title_image }/>
             </div>
             <div className="form-group">
             <label>Content</label>
-            <textarea className="form-control" />
+            <textarea className="form-control" { ...content }/>
             </div>
             <div className="form-group">
             <label>Author</label>
-            <input type="text" className="form-control" />
+            <input type="text" className="form-control" { ...author }/>
             </div>
+						
+						<button type="submit" className="btn btn-primary">Post!</button>
 					</form>
 				</div>{/* end container*/}
 			</div>
@@ -47,4 +58,4 @@ class PostsNew extends Component {
 export default reduxForm({
 	form: 'PostsNewForm',
 	fields: ['title','keywords','date','title_image','content','author']
-})(PostsNew);
+},null, { createPost })(PostsNew);
