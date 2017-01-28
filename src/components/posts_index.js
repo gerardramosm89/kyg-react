@@ -7,16 +7,33 @@ class PostsIndex extends Component {
 	componentWillMount(){
 		console.log("Now would be a good time to call an action creator");	
 		this.props.fetchPosts();
+		console.log("Calling props too early: " + this.props.posts);
 	}
-
-
+	renderPosts(){
+			return this.props.posts.map(post => { console.log("map" + post);
+				return(
+			<Link key={post.title} to={"posts/" + post.title}>
+				<li className="list-group-item" key={post.title}>
+					<span className="pull-xs-right">{post.author}</span>
+					<strong>{post.title}</strong>
+				</li>
+			</Link>
+				)
+			});
+		
+	}
 	render() {
 		return (
 			<div>
         <div className="jumbotron text-center">
-          <h1>Testing Grounds</h1>
+          <h1>Posts Component</h1>
 				</div>
-
+				<div className="col-xs-8 col-xs-offset-2">
+				<ul className="list-group">
+				 {this.renderPosts()}
+				
+				</ul>
+				</div>
 				<div className="text-xs-right">
 					<Link to="/posts/new" className="btn btn-primary">Add blog post</Link>
 					<Link to="/posts/newreview" className="btn btn-primary">Add review post</Link>
@@ -27,9 +44,11 @@ class PostsIndex extends Component {
 }
 
 function mapStateToProps(state) {
-	return { posts: state.posts.all };
+	return { posts: state.posts.all }
 }
+/*
 function mapDispatchToProps(dispatch){
 	return bindActionCreators({ fetchPosts }, dispatch);
 }
-export default connect(mapStateToProps,mapDispatchToProps)(PostsIndex);
+*/
+export default connect(mapStateToProps, { fetchPosts })(PostsIndex);
