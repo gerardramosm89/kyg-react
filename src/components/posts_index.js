@@ -5,12 +5,10 @@ import { fetchPosts } from '../actions/index';
 import { Link } from 'react-router';
 class PostsIndex extends Component {
 	componentWillMount(){
-		console.log("Now would be a good time to call an action creator");	
 		this.props.fetchPosts();
-		console.log("Calling props too early: " + this.props.posts);
 	}
 	renderPosts(){
-			return this.props.posts.map(post => { console.log("map" + post);
+		return this.props.posts.map(post => {
 				return(
 			<Link key={post.title} to={"posts/" + post.title}>
 				<li className="list-group-item" key={post.title}>
