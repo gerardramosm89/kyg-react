@@ -11,7 +11,7 @@ export default (
 	<Route path="/" component={App}>
 	<IndexRoute component={HomeIndex} />
 	<Route path="posts" component={PostsIndex} />
-	<Route path="posts/:title" component={BlogShow} />
+	<Route path="post/:title" component={BlogShow} />
 	<Route path="posts/new" component={PostsNew} />
 	<Route path="posts/newreview" component={NewReview} />
 	<Route path="github" component={ViewGithubUser} />

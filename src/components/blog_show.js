@@ -9,13 +9,22 @@ class BlogShow extends Component {
 		this.props.fetchPost(this.props.params.title);
 	}
 	render() {
+		let post = this.props.post;
+		if (!post){
+			return <div>loading</div>
+		}
 		return (
 				<div>
 					<Link to="/posts" className="btn btn-info">Back to posts</Link>
-					<div>Show post {this.props.params.title}</div>
+					<div className="jumbotron text-center">
+						<h2>{post.title}</h2>
+					</div>
+					<p>{post.content}</p>
 				</div>
 				);
 	}
 }
-
-export default connect(null, { fetchPost })(BlogShow);
+function mapStateToProps(state) {
+	return {post: state.posts.post };
+}
+export default connect(mapStateToProps, { fetchPost })(BlogShow);
