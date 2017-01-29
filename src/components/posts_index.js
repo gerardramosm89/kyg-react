@@ -23,7 +23,8 @@ class PostsIndex extends Component {
 	render() {
 		return (
 			<div>
-        <div className="jumbotron text-center">
+				<Link to="/" className="btn btn-info">Home</Link>
+				<div className="jumbotron text-center">
           <h1>Posts Component</h1>
 				</div>
 				<div className="col-xs-8 col-xs-offset-2">
