@@ -13,6 +13,7 @@ export default class App extends Component {
 						<Link to="/" className="navbar-brand">Home</Link>
 						<ul className="nav navbar-nav">
 							<li><Link to="posts">Posts</Link></li>
+							<li><Link to="github">Github Searcher</Link></li>
 						</ul>
 					</div>
 				{this.props.children}

@@ -9,10 +9,11 @@ class PostsNew extends Component {
 	}
 
 	onSubmit(props) {
-		this.props.createPost(props)
+		console.log(props);
+		{/*		this.props.createPost(props)
 			.then(() => {
 				this.context.router.push('/');
-			});
+				});*/}
 	}
 	render(){
 		const handleSubmit = this.props.handleSubmit;
@@ -71,7 +72,7 @@ function validate(values) {
 }
 
 export default reduxForm({
-	form: 'PostsNewForm',
+	form: 'GithubForm',
 	fields: ['title','keywords','date','title_image','content','author'],
 	validate
-},null, { createPost })(PostsNew);
+},null, null)(PostsNew);

@@ -4,7 +4,7 @@ import App from './components/app';
 import PostsIndex from './components/posts_index';
 import PostsNew from './components/posts_new';
 import NewReview from './components/new_review';
-import ViewGithubUser from './components/github/show_github_user';
+import ViewGithubUser from './components/show_github_user';
 import HomeIndex from './components/home_index';
 import BlogShow from './components/blog_show';
 export default (
