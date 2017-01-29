@@ -12,7 +12,7 @@ class PostsIndex extends Component {
 				return(
 			<Link key={post.title} to={"post/" + post.title}>
 				<li className="list-group-item" key={post.title}>
-					<span className="pull-xs-right">{post.author}</span>
+					<span className="pull-xs-right">posted by: {post.author}</span>
 					<strong>{post.title}</strong>
 				</li>
 			</Link>
@@ -23,20 +23,17 @@ class PostsIndex extends Component {
 	render() {
 		return (
 			<div>
-				<Link to="/" className="btn btn-info">Home</Link>
 				<div className="jumbotron text-center">
           <h1>Posts Component</h1>
 				</div>
-				<div className="col-xs-8 col-xs-offset-2">
 				<ul className="list-group">
 				 {this.renderPosts()}
 				
 				</ul>
-				</div>
-				<div className="text-xs-right">
-					<Link to="/posts/new" className="btn btn-primary">Add blog post</Link>
-					<Link to="/posts/newreview" className="btn btn-primary">Add review post</Link>
-					</div>
+        <div className="text-xs-right">
+          <Link to="/posts/new" className="btn btn-primary">Add blog post</Link>
+          <Link to="/posts/newreview" className="btn btn-primary">Add review post</Link>
+        </div>
 			</div>
 	)
 	}

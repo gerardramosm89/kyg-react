@@ -16,3 +16,11 @@
 	font-weight:600;
 	font-size:45px;
 }
+
+.navbar-default {
+	margin-top:50px;
+}
+
+.pull-xs-right {
+	float: right;
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 export default class App extends Component {
 	divStyle = {
@@ -7,13 +8,15 @@ export default class App extends Component {
 	render() {
     return (
 			<div>
-			{/*
-				<div className="jumbotron text-center">
-					<h1>KnowYourGlass Testing Grounds</h1>
-				</div>
-			*/}
+				<div className="container">
+					<div className="navbar navbar-default">
+						<Link to="/" className="navbar-brand">Home</Link>
+						<ul className="nav navbar-nav">
+							<li><Link to="posts">Posts</Link></li>
+						</ul>
+					</div>
 				{this.props.children}
-				
+				</div>{/* end container */}	
 			</div>
     );
   }

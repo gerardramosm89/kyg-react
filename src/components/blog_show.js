@@ -15,7 +15,6 @@ class BlogShow extends Component {
 		}
 		return (
 				<div>
-					<Link to="/posts" className="btn btn-info">Back to posts</Link>
 					<div className="jumbotron text-center">
 						<h2>{post.title}</h2>
 					</div>
