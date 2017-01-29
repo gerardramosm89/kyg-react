@@ -3,9 +3,18 @@ import axios from 'axios';
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const CREATE_POST = 'CREATE_POST';
 export const CREATE_REVIEW_POST = 'CREATE_REVIEW_POST';
+export const FETCH_POST = 'FETCH_POST';
+
 const ROOT_URL = 'https://idealistinvestment.com/api/blogs';
 const REVIEW_URL = 'https://idealistinvestment.com/api/reviews';
 
+export function fetchPost(title){
+	const request = axios.get(`${ROOT_URL}/${title}`);
+	return {
+		type: FETCH_POST,
+		payload: request
+	};
+}
 export function fetchPosts(){
 	const request = axios.get(`${ROOT_URL}`);
 	return {
