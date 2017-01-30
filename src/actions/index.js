@@ -5,11 +5,19 @@ export const CREATE_POST = 'CREATE_POST';
 export const CREATE_REVIEW_POST = 'CREATE_REVIEW_POST';
 export const FETCH_GITHUBUSER = 'FETCH_GITHUBUSER';
 export const FETCH_POST = 'FETCH_POST';
+export const CLEAR_GITHUBUSER = 'CLEAR_GITHUBUSER';
 
 const ROOT_URL = 'https://idealistinvestment.com/api/blogs';
 const REVIEW_URL = 'https://idealistinvestment.com/api/reviews';
 const GITHUB_URL = 'https://api.github.com/users';
 
+export function clearGithubRepos(){
+	const Repos = {};
+	return {
+		type: CLEAR_GITHUBUSER,
+		payload: Repos
+	};
+}
 export function fetchGithubRepos(user){
 	const request = axios.get(`${GITHUB_URL}/${user}/repos`);
 	return {

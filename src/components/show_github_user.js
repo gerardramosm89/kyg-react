@@ -1,17 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
-import { fetchGithubRepos } from '../actions/index';
+import { fetchGithubRepos, clearGithubRepos } from '../actions/index';
 class ViewGithubUser extends Component {
 		componentWillMount(){
-			this.updateData();
-		}
-
-		updateData() {
+			this.props.clearGithubRepos();
 		}
 		onSubmit(props) {
 			this.props.fetchGithubRepos(props.githubuser);
 		}
-
 		renderRepos(){
 
 						if (!this.props.repos) {
@@ -56,4 +52,4 @@ function mapStateToProps(state) {
 export default reduxForm({
 	form: 'GithubForm',
 	fields:['githubuser']
-},mapStateToProps, { fetchGithubRepos })(ViewGithubUser);
+},mapStateToProps, { fetchGithubRepos, clearGithubRepos })(ViewGithubUser);
