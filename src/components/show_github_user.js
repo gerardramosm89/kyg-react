@@ -2,6 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
 import { fetchGithubRepos } from '../actions/index';
 class ViewGithubUser extends Component {
+		componentWillMount(){
+			this.updateData();
+		}
+
+		updateData() {
+		}
 		onSubmit(props) {
 			this.props.fetchGithubRepos(props.githubuser);
 		}
