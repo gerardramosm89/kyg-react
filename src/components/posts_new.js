@@ -16,6 +16,7 @@ class PostsNew extends Component {
 				});*/}
 	}
 	render(){
+		console.log("this.props.posts is: " + JSON.stringify(this.props.posts));
 		const handleSubmit = this.props.handleSubmit;
 		const title = this.props.fields.title;
 		const keywords = this.props.fields.keywords;
@@ -63,6 +64,10 @@ class PostsNew extends Component {
 	}
 }
 
+function mapStateToProps(state) {
+	return { posts: state.posts.all }
+}
+
 function validate(values) {
 	const errors = {};
 	if (!values.title){
@@ -72,7 +77,7 @@ function validate(values) {
 }
 
 export default reduxForm({
-	form: 'GithubForm',
+	form: 'PostsNewForm',
 	fields: ['title','keywords','date','title_image','content','author'],
 	validate
-},null, null)(PostsNew);
+}, mapStateToProps, { createPost })(PostsNew);

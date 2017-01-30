@@ -3,11 +3,20 @@ import axios from 'axios';
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const CREATE_POST = 'CREATE_POST';
 export const CREATE_REVIEW_POST = 'CREATE_REVIEW_POST';
+export const FETCH_GITHUBUSER = 'FETCH_GITHUBUSER';
 export const FETCH_POST = 'FETCH_POST';
 
 const ROOT_URL = 'https://idealistinvestment.com/api/blogs';
 const REVIEW_URL = 'https://idealistinvestment.com/api/reviews';
+const GITHUB_URL = 'https://api.github.com/users';
 
+export function fetchGithubRepos(user){
+	const request = axios.get(`${GITHUB_URL}/${user}/repos`);
+	return {
+		type: FETCH_GITHUBUSER,
+		payload: request
+	};
+}
 export function fetchPost(title){
 	const request = axios.get(`${ROOT_URL}/${title}`);
 	return {
