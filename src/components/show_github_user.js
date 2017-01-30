@@ -10,16 +10,14 @@ class ViewGithubUser extends Component {
 		}
 		renderRepos(){
 
-						if (!this.props.repos) {
-						return <div>Search for a user</div>;
-						}
-						console.log(this.props.repos);
+			if (!this.props.repos) {
+				return <div>Search for a user</div>;
+			}
 			return this.props.repos.map(repo => {
-							console.log(repo.name);
 				return(
-						<li className="list-group-item" key={repo.name}>
+					<li className="list-group-item" key={repo.name}>
 						{repo.name}
-						</li>
+					</li>
 				)
 			});
 		}
