@@ -16,7 +16,7 @@ class BlogShow extends Component {
 		return (
 				<div className="container">
 					<div className="jumbotron text-center">
-						<h2>{post.title}</h2>
+						<h1>{post.title}</h1>
 					</div>
 					<p>{post.content}</p>
 				</div>

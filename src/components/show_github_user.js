@@ -22,6 +22,16 @@ class ViewGithubUser extends Component {
 				)
 			});
 		}
+
+		renderError(githubuser){
+			if (githubuser.error && githubuser.touched) {
+				return (
+				    <div className="alert alert-danger">
+            {githubuser.touched ? githubuser.error : ''}
+            </div>
+				);
+			}
+		}
 		render(){
 		const handleSubmit = this.props.handleSubmit;
 		const githubuser = this.props.fields.githubuser;
@@ -31,7 +41,7 @@ class ViewGithubUser extends Component {
 						<div className="form-group">
 						<label>Github User</label>
 						<input type="text" className="form-control" { ...githubuser } />
-						{githubuser.touched ? githubuser.error : ''}
+						{this.renderError(githubuser)}
 						</div>
 						<button type="submit" className="btn btn-primary">
 							Search Github!
