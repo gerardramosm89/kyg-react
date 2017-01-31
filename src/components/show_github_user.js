@@ -9,9 +9,10 @@ class ViewGithubUser extends Component {
 			this.props.fetchGithubRepos(props.githubuser);
 		}
 		renderRepos(){
-
+			//repos starts as null, we need to return early to not break our map
+			//function
 			if (!this.props.repos) {
-				return <div>Search for a user</div>;
+				return <div></div>
 			}
 			return this.props.repos.map(repo => {
 				return(
@@ -30,6 +31,7 @@ class ViewGithubUser extends Component {
 						<div className="form-group">
 						<label>Github User</label>
 						<input type="text" className="form-control" { ...githubuser } />
+						{githubuser.touched ? githubuser.error : ''}
 						</div>
 						<button type="submit" className="btn btn-primary">
 							Search Github!
@@ -42,6 +44,13 @@ class ViewGithubUser extends Component {
 		);
 	}
 }
+function validate(values) {
+	const errors = {};
+	if (!values.githubuser){
+		errors.githubuser = 'Enter a Github User please';
+	}
+	return errors;
+}
 
 function mapStateToProps(state) {
 	return { repos: state.github.repos,
@@ -49,5 +58,6 @@ function mapStateToProps(state) {
 }
 export default reduxForm({
 	form: 'GithubForm',
-	fields:['githubuser']
+	fields:['githubuser'],
+	validate
 },mapStateToProps, { fetchGithubRepos, clearGithubRepos })(ViewGithubUser);
