@@ -23,17 +23,19 @@ class PostsIndex extends Component {
 	render() {
 		return (
 			<div>
-				<div className="jumbotron text-center">
+				<div className="container jumbotron text-center">
           <h1>Posts Component</h1>
-				</div>
+					</div>
+					<div className="container">
 				<ul className="list-group">
 				 {this.renderPosts()}
 				
-				</ul>
-        <div className="text-xs-right">
+				 </ul>
+				 </div>
+        <div className="container text-xs-right">
           <Link to="/posts/new" className="btn btn-primary">Add blog post</Link>
           <Link to="/posts/newreview" className="btn btn-primary">Add review post</Link>
-        </div>
+					</div>
 			</div>
 	)
 	}

@@ -25,7 +25,7 @@ class ViewGithubUser extends Component {
 		const handleSubmit = this.props.handleSubmit;
 		const githubuser = this.props.fields.githubuser;
 		return(
-				<div>
+				<div className="container">
 					<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
 						<div className="form-group">
 						<label>Github User</label>

@@ -7,12 +7,17 @@
     border: #b1b1b1;
     border-style: solid;
     border-width: 2px;
+		border-radius: 15px !important;
+}
+.container {
+	padding-right: 0px !important;
+	padding-left: 0px !important;
 }
 .text-center {
 	text-align:center !important;
 }
 
-.jumbotron > h1 {
+.jumbotron h1 {
 	font-weight:600;
 	font-size:45px;
 }

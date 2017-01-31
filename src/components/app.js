@@ -8,8 +8,7 @@ export default class App extends Component {
 	render() {
     return (
 			<div>
-				<div className="container">
-					<div className="navbar navbar-default">
+					<div className="container navbar navbar-default">
 						<Link to="/" className="navbar-brand">Home</Link>
 						<ul className="nav navbar-nav">
 							<li><Link to="posts">Posts</Link></li>
@@ -17,7 +16,6 @@ export default class App extends Component {
 						</ul>
 					</div>
 				{this.props.children}
-				</div>{/* end container */}	
 			</div>
     );
   }
