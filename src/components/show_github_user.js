@@ -27,8 +27,8 @@ class ViewGithubUser extends Component {
 			if (githubuser.error && githubuser.touched) {
 				return (
 				    <div className="alert alert-danger">
-            {githubuser.touched ? githubuser.error : ''}
-            </div>
+            <strong>{githubuser.touched ? githubuser.error : ''}</strong>
+						</div>
 				);
 			}
 		}
