@@ -26,6 +26,10 @@
 	float:right;
 	width:40%;
 }
+
+.aboutmeimage{
+  border-radius: 0 13px 13px 0;
+}
 .jumbotron {
     background-color: rgba(236, 238, 239, 0.19) !important;
     border: #b1b1b1;

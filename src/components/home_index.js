@@ -16,7 +16,7 @@ export default class HomeIndex extends Component {
 						Testing the left text
 						
 					</div>
-					<img className="aboutmeright" src="https://idealistinvestment.com/images/stacy-22.jpg" />
+					<img className="aboutmeright aboutmeimage" src="https://idealistinvestment.com/images/stacy-22.jpg" />
 				</div>
 			</div>
 		)
