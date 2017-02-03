@@ -1,6 +1,31 @@
 * {
 	font-family: 'Lato', 'sans-serif';	
 }
+
+#aboutmecontainer {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border: #b1b1b1;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 15px !important;
+}
+.aboutme {
+    font-size: 30px;
+    padding-top: 20px;
+}
+
+.aboutmeleft {
+	padding-left: 30px;
+  padding-bottom: 10px;
+  padding-top:10px;
+  float: left;
+  width: 60%;
+}
+
+.aboutmeright {
+	float:right;
+	width:40%;
+}
 .jumbotron {
     background-color: rgba(236, 238, 239, 0.19) !important;
     border: #b1b1b1;

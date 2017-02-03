@@ -6,7 +6,17 @@ export default class HomeIndex extends Component {
 		return(
 			<div>
 				<div className="container jumbotron text-center">
-					<h1>This is going to be the home component</h1>
+					<h1>Hi.</h1>
+				</div>
+				
+				<div className="container" id="aboutmecontainer">
+					<div className="aboutmeleft">
+						
+						<p className="aboutme">About me:</p>
+						Testing the left text
+						
+					</div>
+					<img className="aboutmeright" src="https://idealistinvestment.com/images/stacy-22.jpg" />
 				</div>
 			</div>
 		)

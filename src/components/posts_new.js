@@ -27,6 +27,7 @@ class PostsNew extends Component {
 		console.log(this.props.fields);
 		return(
 			<div>
+				<div className="container">
 					<div className="jumbotron text-center">
 					<h2>Start here to create a new blog post.</h2>
 					</div>
@@ -59,6 +60,7 @@ class PostsNew extends Component {
 						
 						<button type="submit" className="btn btn-primary">Post!</button>
 					</form>
+				</div>
 			</div>
 		);
 	}
