@@ -17,7 +17,7 @@ class ViewGithubUser extends Component {
 			return this.props.repos.map(repo => {
 				return(
 					<li className="list-group-item" key={repo.name}>
-						{repo.name}
+						<a href={'https://github.com/gerardramosm89/' + repo.name}>{repo.name}</a>
 					</li>
 				)
 			});
