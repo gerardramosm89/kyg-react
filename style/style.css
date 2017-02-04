@@ -14,7 +14,9 @@
     padding-top: 20px;
 }
 .sitebackground {
-
+	background-image: url('../src/images/stars-bg.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 .aboutmeleft {
 	padding-left: 30px;

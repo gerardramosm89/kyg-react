@@ -7,7 +7,7 @@ export default class App extends Component {
 	};
 	render() {
     return (
-			<div className="sitebackground">
+			<div>
 					<div className="container navbar navbar-default">
 						<Link to="" className="navbar-brand">Home</Link>
 						<ul className="nav navbar-nav">
