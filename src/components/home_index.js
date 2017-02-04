@@ -5,7 +5,7 @@ export default class HomeIndex extends Component {
 	render(){
 		return(
 			<div>
-				<div className="container jumbotron text-center">
+				<div className="jumbotron text-center">
 					<h1>Hi.</h1>
 				</div>
 				
