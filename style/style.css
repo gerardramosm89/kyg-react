@@ -1,5 +1,5 @@
 * {
-	font-family: 'Lato', 'sans-serif';	
+	font-family: 'Lato', 'sans-serif';
 }
 
 #aboutmecontainer {
@@ -8,6 +8,19 @@
   border-style: solid;
   border-width: 2px;
   border-radius: 15px !important;
+}
+.homebanner {
+	background-color: inherit;
+	min-height:500px;
+}
+.headerbottom {
+	padding-bottom:220px;
+	background: rgba(0, 0, 0, 0.2);
+}
+.homebanner h1 {
+	margin-top: 0px;
+	margin-bottom:0px;
+	padding-top:220px;
 }
 .aboutme {
     font-size: 30px;
