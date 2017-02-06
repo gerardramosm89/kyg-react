@@ -13,6 +13,9 @@
 	background-color: inherit;
 	min-height:500px;
 }
+.navbar{
+	border-radius:0px !important;
+}
 .headerbottom {
 	padding-bottom:220px;
 	background: rgba(0, 0, 0, 0.2);
@@ -21,6 +24,10 @@
 	margin-top: 0px;
 	margin-bottom:0px;
 	padding-top:220px;
+	color:white;
+	font-size:60px;
+}
+.homebanner h3 {
 	color:white;
 }
 .aboutme {
