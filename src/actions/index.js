@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { CHANGE_AUTH } from './types';
 
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const CREATE_POST = 'CREATE_POST';
@@ -11,6 +12,12 @@ const ROOT_URL = 'https://idealistinvestment.com/api/blogs';
 const REVIEW_URL = 'https://idealistinvestment.com/api/reviews';
 const GITHUB_URL = 'https://api.github.com/users';
 
+export function authenticate(isLoggedIn){
+	return {
+		type: CHANGE_AUTH,
+		payload: isLoggedIn
+	};
+}
 export function clearGithubRepos(){
 	const Repos = {};
 	return {

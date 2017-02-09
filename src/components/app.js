@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 export default class App extends Component {
-	divStyle = {
-		'text-align':'center'
-	};
+	authButton(){
+		return(
+			<button className="btn btn-primary signinbtn">Sign In</button>
+		);
+	}
+
 	render() {
     return (
 			<div>
@@ -13,6 +16,7 @@ export default class App extends Component {
 						<ul className="nav navbar-nav">
 							<li><Link to="posts">Posts</Link></li>
 							<li><Link to="github">Github Searcher</Link></li>
+							<li>{ this.authButton() }</li>
 						</ul>
 					</div>
 				{this.props.children}

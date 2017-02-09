@@ -9,6 +9,10 @@
   border-width: 2px;
   border-radius: 15px !important;
 }
+
+.signinbtn{
+	margin-top: 8px;
+}
 .homebanner {
 	background-color: inherit;
 	min-height:500px;

@@ -8,6 +8,9 @@ class BlogShow extends Component {
 	componentWillMount(){
 		this.props.fetchPost(this.props.params.title);
 	}
+	injectHTML() {
+  	return {__html: this.props.post.content};
+	}
 	render() {
 		let post = this.props.post;
 		if (!post){
@@ -18,7 +21,7 @@ class BlogShow extends Component {
 					<div className="jumbotron text-center">
 						<h1>{post.title}</h1>
 					</div>
-					<p>{post.content}</p>
+					<div dangerouslySetInnerHTML={this.injectHTML()} />  {/* Have to put this in so we can put in HTML in our content */}
 				</div>
 				);
 	}
