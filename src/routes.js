@@ -7,6 +7,7 @@ import NewReview from './components/new_review';
 import ViewGithubUser from './components/show_github_user';
 import HomeIndex from './components/home_index';
 import BlogShow from './components/blog_show';
+
 export default (
 	<Route path="/" component={App}>
 	<IndexRoute component={HomeIndex} />

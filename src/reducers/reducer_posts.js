@@ -1,6 +1,6 @@
 import { FETCH_POSTS } from '../actions/index';
 import { FETCH_POST } from '../actions/index';
-const INITIAL_STATE = { all: [], post: null};
+const INITIAL_STATE = { all: [], post: null };
 
 export default function(state = INITIAL_STATE, action) {
 	switch(action.type){
@@ -8,7 +8,7 @@ export default function(state = INITIAL_STATE, action) {
 			return {...state, all:action.payload.data}
 		case FETCH_POST:
 			return {...state, post:action.payload.data}
-		default: 
+		default:
 			return state;
 	}
 }

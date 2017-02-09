@@ -7,6 +7,7 @@ export const CREATE_REVIEW_POST = 'CREATE_REVIEW_POST';
 export const FETCH_GITHUBUSER = 'FETCH_GITHUBUSER';
 export const FETCH_POST = 'FETCH_POST';
 export const CLEAR_GITHUBUSER = 'CLEAR_GITHUBUSER';
+export const UPDATE_BLOGPOST = 'UPDATE_BLOGPOST';
 
 const ROOT_URL = 'https://idealistinvestment.com/api/blogs';
 const REVIEW_URL = 'https://idealistinvestment.com/api/reviews';
@@ -18,6 +19,15 @@ export function authenticate(isLoggedIn){
 		payload: isLoggedIn
 	};
 }
+
+export function updateBlogPost(){
+	const request = axios.put(`${ROOT_URL}/${title}`);
+	return {
+		type: UPDATE_BLOGPOST,
+		payload: request
+	}
+}
+
 export function clearGithubRepos(){
 	const Repos = {};
 	return {

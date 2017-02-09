@@ -17,9 +17,9 @@ class BlogShow extends Component {
 			return <div>loading</div>
 		}
 		return (
-				<div className="container">
-					<div className="jumbotron text-center">
-						<h1>{post.title}</h1>
+				<div>
+					<div className="text-center blogheader">
+						<h1 className="">{post.title}</h1>
 					</div>
 					<div dangerouslySetInnerHTML={this.injectHTML()} />  {/* Have to put this in so we can put in HTML in our content */}
 				</div>
