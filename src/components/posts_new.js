@@ -5,7 +5,7 @@ import { createPost } from '../actions/index';
 
 class PostsNew extends Component {
 	static contextTypes = {
-		router: PropTypes.object	
+		router: PropTypes.object
 	}
 
 	onSubmit(props) {
@@ -24,7 +24,7 @@ class PostsNew extends Component {
 		const title_image = this.props.fields.title_image;
 		const content = this.props.fields.content;
 		const author = this.props.fields.author;
-		console.log(this.props.fields);
+		console.log(this.props.fields.title);
 		return(
 			<div>
 				<div className="container">
@@ -57,7 +57,7 @@ class PostsNew extends Component {
             <label>Author</label>
             <input type="text" className="form-control" { ...author }/>
             </div>
-						
+
 						<button type="submit" className="btn btn-primary">Post!</button>
 					</form>
 				</div>
@@ -80,6 +80,5 @@ function validate(values) {
 
 export default reduxForm({
 	form: 'PostsNewForm',
-	fields: ['title','keywords','date','title_image','content','author'],
-	validate
+	fields: ['title','keywords','date','title_image','content','author']
 }, mapStateToProps, { createPost })(PostsNew);

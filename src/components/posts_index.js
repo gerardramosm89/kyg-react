@@ -10,34 +10,50 @@ class PostsIndex extends Component {
 	renderPosts(){
 		return this.props.posts.map(post => {
 				return(
-			<Link key={post.title} to={"/post/" + post.title}>
+			<div key={post.title} to={"/post/" + post.title}>
 				<li className="list-group-item" key={post.title}>
-					<span className="pull-xs-right">posted by: {post.author}</span>
-					<strong>{post.title}</strong>
+					<strong>{post.title}</strong><br />
+					<span>posted by: {post.author}</span>
 				</li>
-			</Link>
+			</div>
 				)
 			});
-		
+
+	}
+	renderPosts2(){
+		return this.props.posts.map(post => {
+			return (
+				<div className="blogindexlist">
+				<Link to={"/post/" + post.title}>
+				<h1 key={post.title}>{post.title}</h1>
+				<h4>Author: {post.author}</h4>
+				</Link>
+				</div>
+			)
+		});
 	}
 	render() {
 		return (
 			<div>
-				<div className="container jumbotron text-center">
-          <h1>Posts Component</h1>
+					<div className="blogheader text-center">
+          	<h1>Posts Component</h1>
 					</div>
 					<div className="container">
-				<ul className="list-group">
-				 {this.renderPosts()}
-				
-				 </ul>
-				 </div>
-        <div className="container text-xs-right">
-          <Link to="/posts/new" className="btn btn-primary">Add blog post</Link>
-          <Link to="/posts/newreview" className="btn btn-primary">Add review post</Link>
+							{/*}
+						<ul className="list-group poststable">
+						 {this.renderPosts()}
+						 </ul>
+						 */}
+						 <div className="bloglist">
+						 {this.renderPosts2()}
+						 </div>
+				 	</div>
+        	<div className="container text-xs-right">
+	          <Link to="/posts/new" className="btn btn-primary">Add blog post</Link>
+	          <Link to="/posts/newreview" className="btn btn-primary">Add review post</Link>
 					</div>
 			</div>
-	)
+		)
 	}
 }
 
