@@ -11,6 +11,7 @@ import EditReview from './components/edit_review';
 import ReviewsIndex from './components/reviews_index';
 import EditBlog from './components/edit_blog';
 import SingleReview from './components/single_review';
+
 export default (
 	<Route path="/" component={App}>
 		<IndexRoute component={HomeIndex} />
