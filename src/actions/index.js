@@ -11,6 +11,7 @@ export const DELETE_BLOGPOST = 'DELETE_BLOGPOST';
 export const FETCH_REVIEWS = 'FETCH_REVIEWS';
 export const CREATE_REVIEW_POST = 'CREATE_REVIEW_POST';
 export const UPDATE_REVIEWPOST = 'UPDATE_REVIEWPOST';
+export const DELETE_REVIEWPOST = 'DELETE_REVIEWPOST';
 //Github Actions
 export const FETCH_GITHUBUSER = 'FETCH_GITHUBUSER';
 export const CLEAR_GITHUBUSER = 'CLEAR_GITHUBUSER';
@@ -20,7 +21,7 @@ export const CLEAR_GITHUBUSER = 'CLEAR_GITHUBUSER';
 const ROOT_URL = 'https://idealistinvestment.com/api/blogs';
 const REVIEW_URL = 'https://idealistinvestment.com/api/reviews';
 const GITHUB_URL = 'https://api.github.com/users';
-const JWT_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwiZ2V0dGVycyI6e30sIndhc1BvcHVsYXRlZCI6ZmFsc2UsImFjdGl2ZVBhdGhzIjp7InBhdGhzIjp7ImVtYWlsIjoicmVxdWlyZSIsInBhc3N3b3JkIjoiaW5pdCIsInVzZXJuYW1lIjoiaW5pdCIsIl9fdiI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfX3YiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJ1c2VybmFtZSI6dHJ1ZSwiX2lkIjp0cnVlfSwibW9kaWZ5Ijp7fSwicmVxdWlyZSI6eyJlbWFpbCI6dHJ1ZX19LCJzdGF0ZU5hbWVzIjpbInJlcXVpcmUiLCJtb2RpZnkiLCJpbml0IiwiZGVmYXVsdCIsImlnbm9yZSJdfSwiZW1pdHRlciI6eyJkb21haW4iOm51bGwsIl9ldmVudHMiOnt9LCJfZXZlbnRzQ291bnQiOjAsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7Il9fdiI6MCwicGFzc3dvcmQiOiIkMmEkMDUkTi5XMnVHaVRKRFZjSWN1aGZLaHZJLjdpaW5wQkhRZGhGS3dTbGJaM0hxcjFETjhGdm5sVEciLCJ1c2VybmFtZSI6ImFkbWluMSIsIl9pZCI6IjU4OWNiZmJjZjM1YzQ3N2E4NWRlOTNlNSJ9LCJfcHJlcyI6eyIkX19vcmlnaW5hbF9zYXZlIjpbbnVsbCxudWxsLG51bGxdLCIkX19vcmlnaW5hbF92YWxpZGF0ZSI6W251bGxdLCIkX19vcmlnaW5hbF9yZW1vdmUiOltudWxsXX0sIl9wb3N0cyI6eyIkX19vcmlnaW5hbF9zYXZlIjpbXSwiJF9fb3JpZ2luYWxfdmFsaWRhdGUiOltdLCIkX19vcmlnaW5hbF9yZW1vdmUiOltdfSwiaWF0IjoxNDg3MDA3NzAyLCJleHAiOjE0ODcwMDkxNDJ9.0nBcG6yjH7_HSGtkaeejIvwkL45HL5-06tGlgzTSHBI';
+const JWT_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwiZ2V0dGVycyI6e30sIndhc1BvcHVsYXRlZCI6ZmFsc2UsImFjdGl2ZVBhdGhzIjp7InBhdGhzIjp7ImVtYWlsIjoicmVxdWlyZSIsInBhc3N3b3JkIjoiaW5pdCIsInVzZXJuYW1lIjoiaW5pdCIsIl9fdiI6ImluaXQiLCJfaWQiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfX3YiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJ1c2VybmFtZSI6dHJ1ZSwiX2lkIjp0cnVlfSwibW9kaWZ5Ijp7fSwicmVxdWlyZSI6eyJlbWFpbCI6dHJ1ZX19LCJzdGF0ZU5hbWVzIjpbInJlcXVpcmUiLCJtb2RpZnkiLCJpbml0IiwiZGVmYXVsdCIsImlnbm9yZSJdfSwiZW1pdHRlciI6eyJkb21haW4iOm51bGwsIl9ldmVudHMiOnt9LCJfZXZlbnRzQ291bnQiOjAsIl9tYXhMaXN0ZW5lcnMiOjB9fSwiaXNOZXciOmZhbHNlLCJfZG9jIjp7Il9fdiI6MCwicGFzc3dvcmQiOiIkMmEkMDUkTi5XMnVHaVRKRFZjSWN1aGZLaHZJLjdpaW5wQkhRZGhGS3dTbGJaM0hxcjFETjhGdm5sVEciLCJ1c2VybmFtZSI6ImFkbWluMSIsIl9pZCI6IjU4OWNiZmJjZjM1YzQ3N2E4NWRlOTNlNSJ9LCJfcHJlcyI6eyIkX19vcmlnaW5hbF9zYXZlIjpbbnVsbCxudWxsLG51bGxdLCIkX19vcmlnaW5hbF92YWxpZGF0ZSI6W251bGxdLCIkX19vcmlnaW5hbF9yZW1vdmUiOltudWxsXX0sIl9wb3N0cyI6eyIkX19vcmlnaW5hbF9zYXZlIjpbXSwiJF9fb3JpZ2luYWxfdmFsaWRhdGUiOltdLCIkX19vcmlnaW5hbF9yZW1vdmUiOltdfSwiaWF0IjoxNDg3MDE3MzQxLCJleHAiOjE0ODcwMTg3ODF9.gsKV6dTTxM8Bc0vNpV1wxVFYYvAYnOV3sTOmjDjzSJc';
 
 const headerConfig = {
 	headers: {'x-access-token': JWT_TOKEN}
@@ -32,12 +33,19 @@ export function authenticate(isLoggedIn){
 		payload: isLoggedIn
 	};
 }
-
+export function deleteReview(title){
+	const request = axios.delete(`${REVIEW_URL}/${title}`, headerConfig);
+	console.log(`${title} deleteReview action was called!`);
+	return {
+		type: DELETE_REVIEWPOST,
+		payload: {}
+	};
+}
 export function deleteBlog(title){
-	//const request = axios.delete(`${REVIEW_URL}/${title}`, headerConfig);
+	const request = axios.delete(`${ROOT_URL}/${title}`, headerConfig);
 	console.log(`${title} was attempted to be deleted, action was called`);
 	return {
-		type: DELETE_BLOGPOST,
+		type: DELETE_REVIEWPOST,
 		payload: {}
 	};
 }

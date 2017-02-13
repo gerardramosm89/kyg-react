@@ -32,6 +32,7 @@ class PostsIndex extends Component {
 						<Link to={"/post/" + post.title}>
 						<h1 key={post.title}>{post.title}</h1>
 						<h4>Author: {post.author}</h4>
+						<p>The id is: {post._id}</p>
 						</Link>
 					</div>
 					<div className="btnsdiv">

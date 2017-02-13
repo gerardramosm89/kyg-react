@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchReviewPosts } from '../actions/index';
+import { fetchReviewPosts, deleteReview } from '../actions/index';
 import { Link } from 'react-router';
+
 class ReviewsIndex extends Component {
 	componentWillMount(){
 		this.props.fetchReviewPosts();
@@ -21,6 +22,10 @@ class ReviewsIndex extends Component {
 			});
 
 	}
+
+  deleteClick(title){
+    this.props.deleteReview(title);
+  }
 	renderPosts2(){
 		return this.props.posts.map(post => {
 			return (
@@ -32,7 +37,8 @@ class ReviewsIndex extends Component {
 						</Link>
 					</div>
 					<div className="btnsdiv">
-						<div className="btn btn-danger postbtns">Delete</div>
+						<div className="btn btn-danger postbtns"
+            onClick={() => this.deleteClick(post.title)}>Delete</div>
 						<Link to={"/reviews/edit/" + post.title} className="btn btn-info postbtns">Edit</Link>
 					</div>
 				</div>
@@ -72,4 +78,4 @@ function mapDispatchToProps(dispatch){
 	return bindActionCreators({ fetchPosts }, dispatch);
 }
 */
-export default connect(mapStateToProps, { fetchReviewPosts })(ReviewsIndex);
+export default connect(mapStateToProps, { fetchReviewPosts, deleteReview})(ReviewsIndex);
