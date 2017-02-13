@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchPosts } from '../actions/index';
+import { fetchPosts, deleteBlog } from '../actions/index';
 import { Link } from 'react-router';
 class PostsIndex extends Component {
 	componentWillMount(){
@@ -21,6 +21,9 @@ class PostsIndex extends Component {
 			});
 
 	}
+	deleteBlogx(title){
+		this.props.deleteBlog(title);
+	}
 	renderPosts2(){
 		return this.props.posts.map(post => {
 			return (
@@ -32,7 +35,8 @@ class PostsIndex extends Component {
 						</Link>
 					</div>
 					<div className="btnsdiv">
-						<div className="btn btn-danger postbtns">Delete</div>
+						<button className="btn btn-danger postbtns"
+						onClick={() => this.deleteBlogx(post.title)}>Delete</button>
 						<Link to={"/posts/edit/" + post.title} className="btn btn-info postbtns">Edit</Link>
 					</div>
 				</div>
@@ -72,4 +76,4 @@ function mapDispatchToProps(dispatch){
 	return bindActionCreators({ fetchPosts }, dispatch);
 }
 */
-export default connect(mapStateToProps, { fetchPosts })(PostsIndex);
+export default connect(mapStateToProps, { fetchPosts, deleteBlog })(PostsIndex);

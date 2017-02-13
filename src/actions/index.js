@@ -6,6 +6,7 @@ export const FETCH_POSTS = 'FETCH_POSTS';
 export const CREATE_POST = 'CREATE_POST';
 export const UPDATE_BLOGPOST = 'UPDATE_BLOGPOST';
 export const FETCH_POST = 'FETCH_POST';
+export const DELETE_BLOGPOST = 'DELETE_BLOGPOST';
 //Review Actions
 export const FETCH_REVIEWS = 'FETCH_REVIEWS';
 export const CREATE_REVIEW_POST = 'CREATE_REVIEW_POST';
@@ -32,6 +33,14 @@ export function authenticate(isLoggedIn){
 	};
 }
 
+export function deleteBlog(title){
+	//const request = axios.delete(`${REVIEW_URL}/${title}`, headerConfig);
+	console.log(`${title} was attempted to be deleted, action was called`);
+	return {
+		type: DELETE_BLOGPOST,
+		payload: {}
+	};
+}
 export function updateReviewPost(title){
 	const request = axios.put(`${REVIEW_URL}/${title}`);
 	return {
