@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { reduxForm } from 'redux-form';
 
-class EditReview extends Component {
+class EditBlog extends Component {
 	static contextTypes = {
 		router: PropTypes.object
 	}
@@ -14,16 +14,11 @@ class EditReview extends Component {
 		//console.log("this.props.posts is: " + JSON.stringify(this.props.posts));
     const handleSubmit = this.props.handleSubmit;
 		const title = this.props.fields.title;
-		const brand = this.props.fields.brand;
 		const keywords = this.props.fields.keywords;
-		const post_date = this.props.fields.post_date;
+		const date = this.props.fields.date;
 		const title_image = this.props.fields.title_image;
 		const content = this.props.fields.content;
 		const author = this.props.fields.author;
-    const category= this.props.fields.category;
-    const sensor = this.props.fields.sensor;
-    const edit_date = this.props.fields.edit_date;
-		const rating = this.props.fields.rating;
 		console.log(this.props.fields);
 		return(
 			<div>
@@ -35,14 +30,15 @@ class EditReview extends Component {
           <div className="form-group">
           <label>Title</label>
           <input type="text" className="form-control" { ...title } />
+          {title.touched ? title.error : ''}
           </div>
           <div className="form-group">
-          <label>Author</label>
-          <input type="text" className="form-control" { ...author }/>
+          <label>Keywords</label>
+          <input type="text" className="form-control" { ...keywords }/>
           </div>
           <div className="form-group">
-          <label>brand</label>
-          <input type="text" className="form-control" { ...brand }/>
+          <label>Date</label>
+          <input type="text" className="form-control" { ...date }/>
           </div>
           <div className="form-group">
           <label>Title Image</label>
@@ -53,24 +49,8 @@ class EditReview extends Component {
           <textarea className="form-control" { ...content }/>
           </div>
           <div className="form-group">
-          <label>Edit Date</label>
-          <input type="text" className="form-control" { ...edit_date }/>
-          </div>
-          <div className="form-group">
-          <label>Post Date</label>
-          <input type="text" className="form-control" { ...post_date }/>
-          </div>
-          <div className="form-group">
-          <label>Category</label>
-          <input type="text" className="form-control" { ...category }/>
-          </div>
-          <div className="form-group">
-          <label>Sensor</label>
-          <input type="text" className="form-control" { ...sensor }/>
-          </div>
-          <div className="form-group">
-          <label>Rating</label>
-          <input type="text" className="form-control" { ...rating }/>
+          <label>Author</label>
+          <input type="text" className="form-control" { ...author }/>
           </div>
 
 						<button type="submit" className="btn btn-primary">Post!</button>
@@ -96,4 +76,4 @@ function validate(values) {
 export default reduxForm({
 	form: 'PostsNewForm',
 	fields: ['title','sensor','edit_date','category','post_date','title_image','content','brand','author','rating']
-}, mapStateToProps, {})(EditReview);
+}, mapStateToProps, {})(EditBlog);

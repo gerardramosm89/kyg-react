@@ -33,7 +33,7 @@ class ReviewsIndex extends Component {
 					</div>
 					<div className="btnsdiv">
 						<div className="btn btn-danger postbtns">Delete</div>
-						<Link to={"/posts/edit/" + post.title} className="btn btn-info postbtns">Edit</Link>
+						<Link to={"/reviews/edit/" + post.title} className="btn btn-info postbtns">Edit</Link>
 					</div>
 				</div>
 			)
@@ -65,7 +65,6 @@ class ReviewsIndex extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log("state.posts.reviewPosts is: " + JSON.stringify(state.posts.reviewPosts));
 	return { posts: state.posts.reviewPosts }
 }
 /*

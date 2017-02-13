@@ -1,6 +1,7 @@
 import { FETCH_POSTS } from '../actions/index';
 import { FETCH_POST } from '../actions/index';
 import { FETCH_REVIEWS } from '../actions/index';
+
 const INITIAL_STATE = { reviewPosts: [], all: [], post: null };
 
 export default function(state = INITIAL_STATE, action) {
