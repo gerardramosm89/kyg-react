@@ -31,7 +31,7 @@ class ReviewsIndex extends Component {
 			return (
 				<div key={post.title} className="blogindexlist">
 					<div className="title">
-						<Link to={"/post/" + post.title}>
+						<Link to={"/review/" + post.title}>
 						<h1 key={post.title}>{post.title}</h1>
 						<h4>Author: {post.author}</h4>
 						</Link>

@@ -9,6 +9,7 @@ export const FETCH_POST = 'FETCH_POST';
 export const DELETE_BLOGPOST = 'DELETE_BLOGPOST';
 //Review Actions
 export const FETCH_REVIEWS = 'FETCH_REVIEWS';
+export const FETCH_REVIEW = 'FETCH_REVIEW';
 export const CREATE_REVIEW_POST = 'CREATE_REVIEW_POST';
 export const UPDATE_REVIEWPOST = 'UPDATE_REVIEWPOST';
 export const DELETE_REVIEWPOST = 'DELETE_REVIEWPOST';
@@ -31,6 +32,15 @@ export function authenticate(isLoggedIn){
 	return {
 		type: CHANGE_AUTH,
 		payload: isLoggedIn
+	};
+}
+
+export function fetchReview(title){
+	const request = axios.get(`${REVIEW_URL}/${title}`);
+	console.log(`Fetch review was called`);
+	return {
+		type: FETCH_REVIEW,
+		payload: request
 	};
 }
 export function deleteReview(title){

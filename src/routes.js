@@ -10,11 +10,12 @@ import BlogShow from './components/blog_show';
 import EditReview from './components/edit_review';
 import ReviewsIndex from './components/reviews_index';
 import EditBlog from './components/edit_blog';
-
+import SingleReview from './components/single_review';
 export default (
 	<Route path="/" component={App}>
 		<IndexRoute component={HomeIndex} />
 		<Route path="post/:title" component={BlogShow} />
+		<Route path="review/:title" component={SingleReview} />
 		<Route path="posts" component={PostsIndex} />
 		<Route path="reviews" component={ReviewsIndex} />
 		<Route path="reviews/edit/:title" component={EditReview} />
