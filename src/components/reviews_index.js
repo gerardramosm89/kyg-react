@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchPosts } from '../actions/index';
+import { fetchReviewPosts } from '../actions/index';
 import { Link } from 'react-router';
-class PostsIndex extends Component {
+class ReviewsIndex extends Component {
 	componentWillMount(){
-		this.props.fetchPosts();
+		this.props.fetchReviewPosts();
 	}
 	renderPosts(){
 		return this.props.posts.map(post => {
@@ -43,7 +43,7 @@ class PostsIndex extends Component {
 		return (
 			<div>
 					<div className="blogheader text-center">
-          	<h1>Blogs Index</h1>
+          	<h1>Reviews Index</h1>
 					</div>
 					<div className="container">
 							{/*}
@@ -65,11 +65,12 @@ class PostsIndex extends Component {
 }
 
 function mapStateToProps(state) {
-	return { posts: state.posts.all }
+  console.log("state.posts.reviewPosts is: " + JSON.stringify(state.posts.reviewPosts));
+	return { posts: state.posts.reviewPosts }
 }
 /*
 function mapDispatchToProps(dispatch){
 	return bindActionCreators({ fetchPosts }, dispatch);
 }
 */
-export default connect(mapStateToProps, { fetchPosts })(PostsIndex);
+export default connect(mapStateToProps, { fetchReviewPosts })(ReviewsIndex);

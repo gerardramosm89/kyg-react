@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { reduxForm } from 'redux-form';
-import { createPost } from '../actions/index';
 
 class EditReview extends Component {
 	static contextTypes = {
@@ -10,13 +9,9 @@ class EditReview extends Component {
 
 	onSubmit(props) {
 		console.log(props);
-				this.props.createPost(props)
-			.then(() => {
-				this.context.router.push('/');
-				});
 	}
 	render(){
-		console.log("this.props.posts is: " + JSON.stringify(this.props.posts));
+		//console.log("this.props.posts is: " + JSON.stringify(this.props.posts));
 		const handleSubmit = this.props.handleSubmit;
 		const title = this.props.fields.title;
 		const keywords = this.props.fields.keywords;
@@ -24,7 +19,7 @@ class EditReview extends Component {
 		const title_image = this.props.fields.title_image;
 		const content = this.props.fields.content;
 		const author = this.props.fields.author;
-		console.log(this.props.fields.title);
+		console.log(this.props.fields);
 		return(
 			<div>
 				<div className="container">
@@ -80,5 +75,5 @@ function validate(values) {
 
 export default reduxForm({
 	form: 'PostsNewForm',
-	fields: ['title','keywords','date','title_image','content','author']
-}, mapStateToProps, { createPost })(EditReview);
+	fields: ['title','sensor','edit_date','category','post_date','title_image','content','brand','author','rating']
+}, mapStateToProps, {})(EditReview);

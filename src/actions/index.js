@@ -1,14 +1,20 @@
 import axios from 'axios';
 import { CHANGE_AUTH } from './types';
 
+//Blog Actions
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const CREATE_POST = 'CREATE_POST';
-export const CREATE_REVIEW_POST = 'CREATE_REVIEW_POST';
-export const FETCH_GITHUBUSER = 'FETCH_GITHUBUSER';
-export const FETCH_POST = 'FETCH_POST';
-export const CLEAR_GITHUBUSER = 'CLEAR_GITHUBUSER';
 export const UPDATE_BLOGPOST = 'UPDATE_BLOGPOST';
+export const FETCH_POST = 'FETCH_POST';
+//Review Actions
+export const FETCH_REVIEWS = 'FETCH_REVIEWS';
+export const CREATE_REVIEW_POST = 'CREATE_REVIEW_POST';
 export const UPDATE_REVIEWPOST = 'UPDATE_REVIEWPOST';
+//Github Actions
+export const FETCH_GITHUBUSER = 'FETCH_GITHUBUSER';
+export const CLEAR_GITHUBUSER = 'CLEAR_GITHUBUSER';
+
+
 
 const ROOT_URL = 'https://idealistinvestment.com/api/blogs';
 const REVIEW_URL = 'https://idealistinvestment.com/api/reviews';
@@ -30,6 +36,14 @@ export function updateReviewPost(title){
 	const request = axios.put(`${REVIEW_URL}/${title}`);
 	return {
 		type: UPDATE_REVIEWPOST,
+		payload: request
+	}
+}
+
+export function fetchReviewPosts(){
+	const request = axios.get(`${REVIEW_URL}`);
+	return {
+		type: FETCH_REVIEWS,
 		payload: request
 	}
 }
