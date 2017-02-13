@@ -7,12 +7,14 @@ import NewReview from './components/new_review';
 import ViewGithubUser from './components/show_github_user';
 import HomeIndex from './components/home_index';
 import BlogShow from './components/blog_show';
+import EditReview from './components/edit_review';
 
 export default (
 	<Route path="/" component={App}>
 	<IndexRoute component={HomeIndex} />
 	<Route path="post/:title" component={BlogShow} />
 	<Route path="posts" component={PostsIndex} />
+	<Route path="posts/edit/:title" component={EditReview} />
 	<Route path="posts/new" component={PostsNew} />
 	<Route path="posts/newreview" component={NewReview} />
 	<Route path="github" component={ViewGithubUser} />

@@ -14,6 +14,7 @@ class PostsIndex extends Component {
 				<li className="list-group-item" key={post.title}>
 					<strong>{post.title}</strong><br />
 					<span>posted by: {post.author}</span>
+					<div class="btn btn-danger">Delete</div>
 				</li>
 			</div>
 				)
@@ -23,11 +24,17 @@ class PostsIndex extends Component {
 	renderPosts2(){
 		return this.props.posts.map(post => {
 			return (
-				<div className="blogindexlist">
-				<Link to={"/post/" + post.title}>
-				<h1 key={post.title}>{post.title}</h1>
-				<h4>Author: {post.author}</h4>
-				</Link>
+				<div key={post.title} className="blogindexlist">
+					<div className="title">
+						<Link to={"/post/" + post.title}>
+						<h1 key={post.title}>{post.title}</h1>
+						<h4>Author: {post.author}</h4>
+						</Link>
+					</div>
+					<div className="btnsdiv">
+						<div className="btn btn-danger postbtns">Delete</div>
+						<Link to={"/posts/edit/" + post.title} className="btn btn-info postbtns">Edit</Link>
+					</div>
 				</div>
 			)
 		});
