@@ -39,7 +39,7 @@ class EditReview extends Component {
 			<div>
 				<div className="container">
 					<div className="jumbotron text-center">
-					<h2>Start here to create a new blog post.</h2>
+					<h2>Edit Review</h2>
 					</div>
 					<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <div className="form-group">
