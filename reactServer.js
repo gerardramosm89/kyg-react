@@ -12,9 +12,7 @@ app.use(bodyParser.json({ type: '*/*'}));
 
 //serve our static files
 const port = process.env.PORT || 8080;
-
 app.use(express.static(__dirname + '/'));
-console.log("dirname is: ", __dirname);
 
 // viewed at http://localhost:8080
 app.get('*', function(req, res) {
