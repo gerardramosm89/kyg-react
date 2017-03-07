@@ -3,6 +3,9 @@
 * {
   font-family: 'Lato' !important;
 }
+.clearme {
+  clear:both;
+}
 .hr-sm {
   width:200px;
   border-top: 1px solid #9c9c9c;
