@@ -12,11 +12,14 @@ import ReviewsIndex from './components/reviews_index';
 import EditBlog from './components/edit_blog';
 import SingleReview from './components/single_review';
 import test1 from './components/playgrounds/test1';
+import Signin from './components/auth/signin';
+
 
 export default (
 	<Route path="/" component={App}>
 		<IndexRoute component={HomeIndex} />
 		<Route path="test" name="Gerry" component={test1} />
+		<Route path="signin" component={Signin} />
 		<Route path="post/:title" component={BlogShow} />
 		<Route path="review/:title" component={SingleReview} />
 		<Route path="posts" component={PostsIndex} />
