@@ -30,7 +30,7 @@ userSchema.methods.comparePassword = function(candidate, callback) {
   bcrypt.compare(candidate, this.password, function(err, isMatch) {
     if (err) return callback(err);
 
-    callback(null, match);
+    callback(null, isMatch);
   });
 };
 //Create model class
