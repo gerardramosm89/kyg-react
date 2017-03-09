@@ -3,13 +3,16 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const router = require('./router');
+const mongoose = require('mongoose');
+
+//DB Setup
+mongoose.connect('mongodb://localhost:27017/auth')
 //Create the app
 var app = express();
-router(app);
 var path = require('path');
 app.use(morgan('combined'));
 app.use(bodyParser.json({ type: '*/*'}));
-
+router(app);
 //serve our static files
 const port = process.env.PORT || 8080;
 app.use(express.static(__dirname + '/'));
