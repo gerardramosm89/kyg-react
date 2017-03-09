@@ -17,8 +17,9 @@ export default class App extends Component {
 							<li><Link to="posts">Blogs</Link></li>
 							<li><Link to="reviews">Reviews</Link></li>
 							<li><Link to="github">Github Searcher</Link></li>
-							<li><Link to="test">Test</Link></li>
-							<li>{ this.authButton() }</li>
+							<li><Link to="signin">Sign In</Link></li>
+							{/*<li><Link to="test">Test</Link></li>*/}
+							{/*<li>{ this.authButton() }</li>*/}
 						</ul>
 					</div>
 				{this.props.children}
