@@ -22,6 +22,7 @@ export const CLEAR_GITHUBUSER = 'CLEAR_GITHUBUSER';
 const ROOT_URL = 'https://idealistinvestment.com/api/blogs';
 const REVIEW_URL = 'https://idealistinvestment.com/api/reviews';
 const GITHUB_URL = 'https://api.github.com/users';
+const API_URL = 'http://localhost:8080'
 const JWT_TOKEN = '';
 
 const headerConfig = {
@@ -30,8 +31,9 @@ const headerConfig = {
 
 // Actions for sign in
 export function signinUser({ email, password }) {
+	console.log(`action was called, ${email} ${password}`);
 	return function(dispatch) {
-		
+		axios.post(`${API_URL}/api/signin`, { email, password })
 	}
 }
 
