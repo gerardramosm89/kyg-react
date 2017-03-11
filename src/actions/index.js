@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { CHANGE_AUTH } from './types';
-
+import { browserHistory } from 'react-router';
+import { AUTH_USER } from './types';
 //Blog Actions
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const CREATE_POST = 'CREATE_POST';
@@ -34,6 +34,17 @@ export function signinUser({ email, password }) {
 	console.log(`action was called, ${email} ${password}`);
 	return function(dispatch) {
 		axios.post(`${API_URL}/api/signin`, { email, password })
+			.then(response => {
+
+				dispatch({ type: AUTH_USER });
+
+				localStorage.setItem('token', response.data.token);
+				// Update state to indicate user is authenticated
+				browserHistory.push('/feature');
+			})
+			.catch(() => {
+
+			});
 	}
 }
 

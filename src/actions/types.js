@@ -1,2 +1,2 @@
-//starting refactoring of future types of actions
-export const CHANGE_AUTH = 'CHANGE_AUTH';
+export const AUTH_USER = 'auth_user';
+export const UNAUTH_USER = 'unauth_user';
