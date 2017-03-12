@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER } from './types';
+import { AUTH_USER, AUTH_ERROR } from './types';
 //Blog Actions
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const CREATE_POST = 'CREATE_POST';
@@ -43,8 +43,15 @@ export function signinUser({ email, password }) {
 				browserHistory.push('/feature');
 			})
 			.catch(() => {
-
+				dispatch(authError('Bad Login Info'));
 			});
+	}
+}
+
+export function authError(error) {
+	return {
+		type: AUTH_ERROR,
+		payload: error
 	}
 }
 
