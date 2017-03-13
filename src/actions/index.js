@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER, AUTH_ERROR } from './types';
+import { AUTH_USER, UNAUTH_USER, AUTH_ERROR } from './types';
 //Blog Actions
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const CREATE_POST = 'CREATE_POST';
@@ -29,6 +29,8 @@ const headerConfig = {
 	headers: {'x-access-token': JWT_TOKEN}
 };
 
+
+
 // Actions for sign in
 export function signinUser({ email, password }) {
 	console.log(`action was called, ${email} ${password}`);
@@ -55,6 +57,11 @@ export function authError(error) {
 	}
 }
 
+export function signoutUser() {
+	localStorage.removeItem('token');
+
+	return { type: UNAUTH_USER }
+}
 export function authenticate(isLoggedIn){
 	return {
 		type: CHANGE_AUTH,
