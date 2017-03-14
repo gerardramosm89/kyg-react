@@ -14,6 +14,7 @@ import SingleReview from './components/single_review';
 import test1 from './components/playgrounds/test1';
 import Signin from './components/auth/signin';
 import Signout from './components/auth/signout';
+import Signup from './components/auth/signup';
 
 export default (
 	<Route path="/" component={App}>
@@ -21,6 +22,7 @@ export default (
 		<Route path="test" name="Gerry" component={test1} />
 		<Route path="signin" component={Signin} />
 		<Route path="signout" component={Signout} />
+		<Route path="signup" component={Signup} />
 		<Route path="post/:title" component={BlogShow} />
 		<Route path="review/:title" component={SingleReview} />
 		<Route path="posts" component={PostsIndex} />
