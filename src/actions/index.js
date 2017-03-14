@@ -37,7 +37,7 @@ export function signinUser({ email, password }) {
 	return function(dispatch) {
 		axios.post(`${API_URL}/api/signin`, { email, password })
 			.then(response => {
-
+				console.log("response from sign in: ", response);
 				dispatch({ type: AUTH_USER });
 
 				localStorage.setItem('token', response.data.token);
@@ -49,8 +49,23 @@ export function signinUser({ email, password }) {
 			});
 	}
 }
+// Sign up user
+export function signupUser({ email, password }) {
+	//console.log(`sign up action was called, ${email} ${password}`);
+	return function(dispatch) {
+		axios.post(`${API_URL}/api/signup`, { email, password })
+			.then(response => {
+				console.log("response from successful sign up is: ", response) // this shows as proper object!!
+				dispatch({ type: AUTH_USER });
+				localStorage.setItem('token', response.data.token);
+				browserHistory.push('/feature');
+			})
+			.catch(response => dispatch(authError("Error")));
+	}
+}
 
 export function authError(error) {
+	console.log("Auth error fired");
 	return {
 		type: AUTH_ERROR,
 		payload: error
