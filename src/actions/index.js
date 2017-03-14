@@ -60,7 +60,10 @@ export function signupUser({ email, password }) {
 				localStorage.setItem('token', response.data.token);
 				browserHistory.push('/feature');
 			})
-			.catch(response => dispatch(authError("Error")));
+			.catch(response => {
+				console.log(response);
+				dispatch(authError("sign up failed"));
+			});
 	}
 }
 
