@@ -15,6 +15,8 @@ import test1 from './components/playgrounds/test1';
 import Signin from './components/auth/signin';
 import Signout from './components/auth/signout';
 import Signup from './components/auth/signup';
+import Feature from './components/feature';
+import RequireAuth from './components/auth/require_auth';
 
 export default (
 	<Route path="/" component={App}>
@@ -23,6 +25,7 @@ export default (
 		<Route path="signin" component={Signin} />
 		<Route path="signout" component={Signout} />
 		<Route path="signup" component={Signup} />
+		<Route path="feature" component={RequireAuth(Feature)} />
 		<Route path="post/:title" component={BlogShow} />
 		<Route path="review/:title" component={SingleReview} />
 		<Route path="posts" component={PostsIndex} />
