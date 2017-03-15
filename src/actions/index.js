@@ -80,10 +80,19 @@ export function signoutUser() {
 
 	return { type: UNAUTH_USER }
 }
+
 export function authenticate(isLoggedIn){
 	return {
 		type: CHANGE_AUTH,
 		payload: isLoggedIn
+	};
+}
+export function fetchMessage(){
+	return function(dispatch) {
+		axios.get(`${API_URL}/api`, {headers: {authorization: localStorage.getItem('token' )}})
+			.then(response => {
+				console.log(response);
+			});
 	};
 }
 
