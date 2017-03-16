@@ -5,9 +5,11 @@ class ViewGithubUser extends Component {
 		componentWillMount(){
 			this.props.clearGithubRepos();
 		}
+		
 		onSubmit(props) {
 			this.props.fetchGithubRepos(props.githubuser);
 		}
+
 		renderRepos(){
 			//repos starts as null, we need to return early to not break our map
 			//function
