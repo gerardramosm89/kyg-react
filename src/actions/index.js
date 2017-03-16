@@ -55,7 +55,7 @@ export function signupUser({ email, password }) {
 	return function(dispatch) {
 		axios.post(`${API_URL}/api/signup`, { email, password })
 			.then(response => {
-				console.log("response from successful sign up is: ", response) // this shows as proper object!!
+				console.log("response from successful sign up is: ", response);
 				dispatch({ type: AUTH_USER });
 				localStorage.setItem('token', response.data.token);
 				browserHistory.push('/feature');

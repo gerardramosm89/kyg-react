@@ -39,7 +39,7 @@ class ViewGithubUser extends Component {
 				<div className="container">
 					<form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
 						<div className="form-group">
-						<label>Github User</label>
+						<label><h1 className="text-center">Github User</h1></label>
 						<input type="text" className="form-control" { ...githubuser } />
 						{this.renderError(githubuser)}
 						</div>
