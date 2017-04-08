@@ -4,6 +4,7 @@ import { fetchGithubRepos, clearGithubRepos } from '../actions/index';
 class ViewGithubUser extends Component {
 		componentWillMount(){
 			this.props.clearGithubRepos();
+			this.repos = [];
 		}
 		
 		onSubmit(props) {
@@ -20,6 +21,7 @@ class ViewGithubUser extends Component {
 				return(
 					<li className="list-group-item" key={repo.name}>
 						<a href={'https://github.com/gerardramosm89/' + repo.name}>{repo.name}</a>
+						<p>Stargazer Count: {repo.stargazers_count}</p>
 					</li>
 				)
 			});

@@ -17,11 +17,13 @@ import Signout from './components/auth/signout';
 import Signup from './components/auth/signup';
 import Feature from './components/feature';
 import RequireAuth from './components/auth/require_auth';
+import TodoIndex from './components/to-do/todo_index';
 
 export default (
 	<Route path="/" component={App}>
 		<IndexRoute component={HomeIndex} />
 		<Route path="test" name="Gerry" component={test1} />
+		<Route path="todoindex" component={TodoIndex} />
 		<Route path="signin" component={Signin} />
 		<Route path="signout" component={Signout} />
 		<Route path="signup" component={Signup} />
