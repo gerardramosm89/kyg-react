@@ -7,7 +7,7 @@ export default class HomeIndex extends Component {
 			<div>
 			<div className="homebanner">
 				<div className="headerbottom text-center">
-					<h1>Hi</h1>
+					<h1>Hi, my name is Gerard Ramos :)</h1>
 					<h3>FSD</h3>
 				</div>
 			</div>
