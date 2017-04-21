@@ -16,7 +16,7 @@ app.use(morgan('combined'));
 app.use(bodyParser.json({ type: '*/*'}));
 router(app);
 //serve our static files
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8081;
 app.use(express.static(__dirname + '/'));
 
 // viewed at http://localhost:8080
